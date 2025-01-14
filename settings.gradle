@@ -1,0 +1,2 @@
+rootProject.name = 'rgt'
+include 'front', 'api'
