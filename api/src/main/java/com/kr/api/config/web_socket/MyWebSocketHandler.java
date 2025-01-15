@@ -21,7 +21,6 @@ public class MyWebSocketHandler extends TextWebSocketHandler {
 
     @Override
     public void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
-        // 클라이언트로부터 받은 메시지를 처리합니다.
     }
 
     @Override

@@ -1,13 +1,8 @@
 package com.kr.api.order;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.kr.api.data.OrderEntity;
-import com.kr.api.order.OrderQueue;
-import com.kr.api.order.OrderService;
-import com.kr.api.order.dto.OrderCond;
 import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.concurrent.ExecutorService;
