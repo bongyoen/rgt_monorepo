@@ -5,7 +5,7 @@ import {useEffect, useRef} from "react";
 import {useRouter} from 'next/navigation';
 
 type OrderMsgProps = {
-    ordRes: ApiResponseType
+    ordRes?: ApiResponseType
 }
 
 const OrderMsg = ({ordRes}: OrderMsgProps) => {
@@ -54,7 +54,7 @@ const OrderMsg = ({ordRes}: OrderMsgProps) => {
                 >
                     <div className="mt-8 flex h-modal justify-between flex-col">
                         <div>
-                            {ordRes.message}
+                            {ordRes ? ordRes.message : "응답이 없습니다."}
                         </div>
                         <div>
                             <button

@@ -25,8 +25,6 @@ export default function Dashboard({preOrders}: DashboardProps) {
                 ordDt: `${dateArr[0]}-${dateArr[1]}-${dateArr[2]}`,
             };
 
-            // Message received: {"orderNo":1,"menu":"pizza","qntty":2,"ordDt":[2025,1,15]}
-
             setOrders((prevMessages) => {
                 const arr = [...prevMessages, res];
                 if (arr.length > 20) {

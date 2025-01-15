@@ -1,8 +1,8 @@
 'use client';
 
-import BURGER from '@imgs/burger.png';
-import CHICKEN from '@imgs/chicken.png';
-import PIZZA from '@imgs/pizza2.png';
+import BURGER from '../../../public/Image/burger.png';
+import CHICKEN from '../../../public/Image/chicken.png';
+import PIZZA from '../../../public/Image/pizza2.png';
 import Image from "next/image";
 import {useState} from "react";
 import MenuIncDcrBtn from "@/src/app/do_order/menu_inc_dcr_btn";

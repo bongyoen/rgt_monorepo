@@ -1,28 +1,33 @@
 import Dashboard from "@/src/components/dashboard/dashboard";
-import {ApiResponseType, orderReceivedType} from "@/src/types/base_type";
+import {ApiResponseType} from "@/src/types/base_type";
 
 export default async function Home() {
 
-    const res = await fetch(`http://localhost:8080/connSw`, {
-        method: 'GET',
-        headers: {
-            "Content-Type": "application/json",
-        },
-    });
 
-    const resData = (await res.json()) as ApiResponseType;
+    let preOrders: any[] = [];
+    try {
+        const res = await fetch(`http://localhost:8080/connSw`, {
+            method: 'GET',
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
 
-    const preOrders = (resData.rtnModel as []).map(rtnModel => {
+        const resData = (await res.json()) as ApiResponseType;
 
-        return {
-            orderNo: rtnModel["orderNo"],
-            menu: rtnModel["menu"],
-            qntty: rtnModel["qntty"],
-            ordDt: rtnModel['ordDt']
-        }
-    });
+        preOrders = (resData.rtnModel as []).map(rtnModel => {
 
-    console.log(preOrders)
+            return {
+                orderNo: rtnModel["orderNo"],
+                menu: rtnModel["menu"],
+                qntty: rtnModel["qntty"],
+                ordDt: rtnModel['ordDt']
+            }
+        });
+    } catch (e) {
+        console.info("주문내역이 없거나 불러올 수 없습니다")
+    }
+
     return (
         <>
             <div>

@@ -10,21 +10,30 @@ async function Page(params: any) {
     const query = await params.searchParams
     const orders = JSON.parse(query.orders)
 
-    const res = await fetch(`http://localhost:8080/putOrder`, {
-        method: 'PUT',
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(orders)
-    });
-    const apiRes: ApiResponseType = JSON.parse(await res.text());
+    try {
+        const res = await fetch(`${process.env.BASE_URL}/putOrder`, {
+            method: 'PUT',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(orders)
+        });
+        const apiRes: ApiResponseType = JSON.parse(await res.text());
+        return (
+            <Suspense fallback={<Loading/>}>
 
-    return (
-        <Suspense fallback={<Loading/>}>
+                <OrderMsg ordRes={apiRes}/>
+            </Suspense>
+        );
+    } catch (e) {
+        return (
+            <Suspense fallback={<Loading/>}>
+                <OrderMsg ordRes={undefined}/>
+            </Suspense>
+        );
+    }
 
-            <OrderMsg ordRes={apiRes}/>
-        </Suspense>
-    );
+
 }
 
 export default Page;

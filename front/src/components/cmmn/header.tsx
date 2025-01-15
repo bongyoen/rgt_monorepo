@@ -1,4 +1,5 @@
-import imgLogo from '@imgs/logo.png';
+// import imgLogo from '@imgs/logo.png';
+import imgLogo from '../../../public/logo.png';
 import Image from 'next/image';
 import MenuBtn from "@/src/components/btn/menuBtn";
 
@@ -20,7 +21,9 @@ const Header = () => {
             >
                 <div className="flex items-center">
                     <a href="/">
-                        <Image src={imgLogo} width={50} height={50} alt="logo"/>
+                        <Image
+                            src={imgLogo} width={50} height={50} alt="logo"
+                        />
                     </a>
                 </div>
 
