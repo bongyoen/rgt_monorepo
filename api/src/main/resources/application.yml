@@ -1,3 +1,9 @@
 spring:
   application:
     name: api
+  devtools:
+    restart:
+      enabled: true
+    livereload:
+      enabled: true
+
